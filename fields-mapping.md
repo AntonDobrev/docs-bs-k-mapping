@@ -32,7 +32,7 @@ Specifics:
 
 - The item is set to globally writeable (by setting the `_acl.gw` to `true`) only if both `EveryoneCanUpdate` and `EveryoneCanDelete` are `true`.  Otherwise set to `false`. 
 
-- The item is allowed to be writeable (by setting the `_acl.w`  to `true`) only to these users from the `UsersCanUpdate` and `UsersCanDelete` arrays that are allowed to both *Update* and *Delete* the item. ???Otherwise???
+- The item is allowed to be writeable (by setting the `_acl.w`  to `true`) only to these users from the `UsersCanUpdate` and `UsersCanDelete` arrays that are allowed to both *Update* and *Delete* the item. User IDs that participate only in one of the groups are not migrated to the ACL definition of the Kinvey entity (which means they will lose their "update" or "delete" rights for the entity). 
 
 - All data items that contain a `File` relation field (as defined in the content type structure in Backend Services) will be migrated to the supported in Kinvey structure for handling file relations. Example:
 
@@ -123,9 +123,6 @@ Specifics:
 | `Identity`                  | * `_socialIdentity`                | The object containing the definition of the related third-party accounts information of the user. |
 | `Identity.<provider-name>`  | *`_socialIdentity.<provider-name>` | The specific information for the source third-party provider. Example: `_socialIdentity.facebook` |
 | `Id`                        | *`_acl.creator`                    | ID of the user account.                  |
-|                             |                                    |                                          |
-|                             |                                    |                                          |
-|                             |                                    |                                          |
 
 Specifics:
 
