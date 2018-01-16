@@ -62,7 +62,7 @@ Specifics:
 
 - The `Uri` field that used to hold the path to the file resource on the Telerik Platform Backend Services content delivery network will not be migrated. The Kinvey file entity will have a `_downloadURL` field. Use this field to access the file contents. 
 - The `Storage` system field in the file metadata is not migrated. 
-- The migrated files to Kinvey will always be set to `_public` that means the web address of the resource on the CDN will be visible to everyone that has the link. This is for backwards-compatibiblity purposes and to preserve the behavior from the Telerik Platform CDN. The developer can always update the file metadata and set the CDN link to not public. 
+- The migrated files to Kinvey will always be set to `_public` that means the web address of the resource on the CDN will be visible to everyone that has the link. This is for backwards-compatibility purposes and to preserve the behavior from the Telerik Platform CDN. The developer can always update the file metadata and set the CDN link to not public. 
 - Use the `_downloadURL` field of the Kinvey file entity to access the file contents. 
 
 ## Users
@@ -78,7 +78,7 @@ Specifics:
 
 Specifics:
 
-- `IsVerified`field for the user account in Backend Services is set to `true`, it is migrated to the following structure as supported in Kinvey
+- When the `IsVerified`field for the user account in Backend Services is set to `true`, it is migrated to the following structure as supported in Kinvey:
 
   ```json
   {
@@ -99,7 +99,7 @@ Specifics:
 
   The `lastStateChangeAt` and `lastConfirmedAt` dates are set to the value of the `CreatedAt` field of the source entity. 
 
-- The user account `Role` field will be migrated to the corresponding structure in Kinvey. The `grantDate` value is set to the moment in time when the user was assigned the role during the migration. 
+- The user account `Role` field will be set following the corresponding structure in Kinvey. The `grantDate` value is set to the moment in time when the user was assigned the role at the time of the creation during the migration. 
 
   ```json
   "_kmd": {
