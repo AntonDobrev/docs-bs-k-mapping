@@ -4,12 +4,12 @@ The following table is applicable to all data entities that are migrated from Te
 
 | Backend Services field name | Kinvey field name           | Value             | Description                              |
 | --------------------------- | --------------------------- | ----------------- | ---------------------------------------- |
-| `Id`                        | `_id`                       |                   | Unique ID of the item.                   |
-| `CreatedAt`                 | `_kmd.ect`                  |                   | Date and time when the item was created, in ISO 8601 format. |
-| `ModifiedAt`                | `_kmd.lmt`                  |                   | Date and time when the item was last modified, in ISO 8601 format. |
-| `Owner`                     | *`_acl.creator`             |                   | ID of the user who holds the "Owner" role for the item, an empty GUID if the "create" operation was made with master priviliges. |
-| `CreatedBy`                 | *`CreatedBy`                |                   | ID of the user who created the item, an empty GUID if the "create" operation was made with master priviliges. |
-| `ModifiedBy`                | *`ModifiedBy`               |                   | ID of the last user who modified the item, an empty GUID if the operation was made with master priviliges. |
+| `Id`                        | `_id`                       | ID                | Unique ID of the item.                   |
+| `CreatedAt`                 | `_kmd.ect`                  | DateTime          | Date and time when the item was created, in ISO 8601 format. |
+| `ModifiedAt`                | `_kmd.lmt`                  | ID                | Date and time when the item was last modified, in ISO 8601 format. |
+| `Owner`                     | *`_acl.creator`             | ID                | ID of the user who holds the "Owner" role for the item, an empty GUID if the "create" operation was made with master priviliges. |
+| `CreatedBy`                 | *`CreatedBy`                | ID                | ID of the user who created the item, an empty GUID if the "create" operation was made with master priviliges. |
+| `ModifiedBy`                | *`ModifiedBy`               | ID                | ID of the last user who modified the item, an empty GUID if the operation was made with master priviliges. |
 |                             |                             |                   |                                          |
 | `_ACL`                      | `_acl`                      | Object            | An object that holds the definition of the entity-level permissions. |
 | `_ACL.EveryoneCanRead`      | `_acl.gr`                   | Boolean           | Gives read permissions to all users      |
@@ -22,8 +22,8 @@ The following table is applicable to all data entities that are migrated from Te
 | `_ACL.RolesCanUpdate`       | `_acl.roles.u`              | Array of role IDs | Gives update permission to the specified security roles. |
 | `_ACL.RolesCanDelete`       | `_acl.roles.d`              | Array of role IDs | Gives delete permission to the specified security roles. |
 |                             |                             |                   |                                          |
-| `MyCustomFieldName1`        | `MyCustomFieldName1`        |                   | All custom fields are migrated to the Kinvey entity "as-is". |
-| `FileRelationId-FieldName`  | *`FileRelationId-FieldName` | FileID            |                                          |
+| `MyCustomFieldName1`        | `MyCustomFieldName1`        | Any               | All custom fields are migrated to the Kinvey entity "as-is". |
+| `FileRelationId-FieldName`  | *`FileRelationId-FieldName` | FileID            | The ID of an associated file entity.     |
 | `LocationFieldName`         | *`_geoloc`                  | Geo Point         | A definition of a geographic coordinate. |
 
 Specifics:
